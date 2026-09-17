@@ -8,6 +8,7 @@ import { usePageTracking } from "@/hooks/useAnalytics";
 import { usePerformanceMonitor } from "@/hooks/usePerformanceMonitor";
 import { Suspense, lazy } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import PurchaseNotification from "@/components/PurchaseNotification";
 
 // Lazy load components for better performance
 const Home = lazy(() => import("./pages/Home"));
@@ -53,29 +54,32 @@ const AppContent = () => {
   usePerformanceMonitor();
   
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/palestras" element={<VitorYuji />} />
-        <Route path="/escolas" element={<VitorYuji />} />
-        <Route path="/consultoria" element={<Consultoria />} />
-        <Route path="/bio" element={<Consultor />} />
-        <Route path="/manual" element={<Manual />} />
-        <Route path="/upsell-pnp" element={<UpsellPnp />} />
-        <Route path="/contato" element={<Contact />} />
-        <Route path="/obrigado" element={<Obrigado />} />
-        <Route path="/go" element={<Go />} />
-        <Route path="/curso" element={<Curso />} />
-        <Route path="/imersao" element={<Webinar />} />
-        <Route path="/iaexperts" element={<IAExperts />} />
-        <Route path="/iaexpertsbeta" element={<IAExpertsBeta />} />
-        <Route path="/fmi" element={<Fmi />} />
-        <Route path="/cursinho" element={<Cursinho />} />
-        <Route path="/upgrade-presencial" element={<UpgradePresencial />} />
-        <Route path="/vsl" element={<Vsl />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
+    <>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/palestras" element={<VitorYuji />} />
+          <Route path="/escolas" element={<VitorYuji />} />
+          <Route path="/consultoria" element={<Consultoria />} />
+          <Route path="/bio" element={<Consultor />} />
+          <Route path="/manual" element={<Manual />} />
+          <Route path="/upsell-pnp" element={<UpsellPnp />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="/obrigado" element={<Obrigado />} />
+          <Route path="/go" element={<Go />} />
+          <Route path="/curso" element={<Curso />} />
+          <Route path="/imersao" element={<Webinar />} />
+          <Route path="/iaexperts" element={<IAExperts />} />
+          <Route path="/iaexpertsbeta" element={<IAExpertsBeta />} />
+          <Route path="/fmi" element={<Fmi />} />
+          <Route path="/cursinho" element={<Cursinho />} />
+          <Route path="/upgrade-presencial" element={<UpgradePresencial />} />
+          <Route path="/vsl" element={<Vsl />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+      <PurchaseNotification />
+    </>
   );
 };
 

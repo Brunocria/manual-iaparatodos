@@ -34,6 +34,10 @@ import mapasMentaisComposto from "@/assets/mapas-mentais-composto.jpg.asset.json
 import webinarManual from "@/assets/webinar-manual-novo.png";
 import webinarWhatsapp from "@/assets/webinar-whatsapp.png";
 import webinarBiblioteca from "@/assets/webinar-biblioteca-prompts.png";
+import expertVitor from "@/assets/expert-vitor.jpg";
+import expertMaria from "@/assets/expert-maria.jpg";
+import expertBruno from "@/assets/expert-bruno.jpg";
+import expertDiran from "@/assets/expert-diran.jpg";
 
 const testimonials = [
   {
@@ -95,9 +99,34 @@ const courseCards = [
 ];
 
 const experts = [
-  { initials: "VY", name: "Vitor Yuji", role: "Expert principal", copy: "Palestrante de IA, jovem aprendiz da Adapta.org e professor de mais de 50 alunos." },
-  { initials: "MA", name: "Maria Augusta", role: "Pesquisa e inovação", copy: "Ex-pesquisadora da SHIELD, cofundadora do Mangue Mania e reconhecida com o Selo ODS 2025." },
-  { initials: "B", name: "Bruno", role: "Engenharia de software", copy: "Especialista em tecnologia, construção de soluções e novas ferramentas." },
+  {
+    initials: "VY",
+    name: "Vitor Yuji",
+    role: "Expert principal",
+    photo: expertVitor,
+    copy: "Principal palestrante de IA de Sergipe. Jovem aprendiz da Adapta (maior empresa de IA da América Latina) e professor de mais de 50 alunos. 5 temporadas do Torneio de Robótica FLL.",
+  },
+  {
+    initials: "MA",
+    name: "Maria Augusta",
+    role: "Pesquisa e inovação",
+    photo: expertMaria,
+    copy: "Ex-integrante da equipe SHIELD da FLL, cofundadora do projeto Mangue Mania e criadora da calculadora automática apresentada para engenheiros da NASA no MIB de 2023. Medalhista nas OBG, OP e OBLI.",
+  },
+  {
+    initials: "B",
+    name: "Bruno",
+    role: "Engenharia de software",
+    photo: expertBruno,
+    copy: "Mais de 5 medalhas em olimpíadas científicas. Aprendeu 3 linguagens de programação complexas aos 10 anos e é programador júnior assistente de TI de Lauro Fonseca, dono da WERT, focado em habilidades de programação.",
+  },
+  {
+    initials: "DF",
+    name: "Diran Filho",
+    role: "Desenvolvimento de produto",
+    photo: expertDiran,
+    copy: "Criador do aplicativo Cogni com Dart e Flutter, com experiência em Node.js, Python, Java, HTML, CSS e JavaScript. Cocriador do \"Reclame Aju\", plataforma para reportar problemas urbanos em Sergipe (Top 10 de 34 equipes em competição acadêmica).",
+  },
 ];
 
 const SectionTitle = ({ eyebrow, children, description }: { eyebrow: string; children: React.ReactNode; description?: string }) => (
@@ -247,14 +276,7 @@ const IAExperts = () => {
 
               <div className="mx-auto w-full max-w-[540px]">
                 <article className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-muted">
-                  <div className="absolute inset-0 grid place-items-center bg-muted">
-                    <div className="text-center">
-                      <div className="mx-auto grid h-24 w-24 place-items-center rounded-full border border-primary/40 bg-background/40">
-                        <UserRound className="h-10 w-10 text-primary" />
-                      </div>
-                      <p className="mt-4 text-xs font-semibold uppercase text-muted-foreground">Foto de {activeExpert.name}</p>
-                    </div>
-                  </div>
+                  <img src={activeExpert.photo} alt={activeExpert.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/95 to-transparent px-6 pb-6 pt-24 md:px-8 md:pb-8">
                     <p className="text-[10px] font-semibold uppercase text-primary">{activeExpert.role}</p>
                     <h3 className="mt-2 font-editorial text-4xl leading-none md:text-5xl">{activeExpert.name}</h3>
